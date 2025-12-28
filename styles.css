@@ -4986,7 +4986,7 @@ html {
 /* Economic Calendar Styles */
 .economic-calendar-hero {
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 40, 30, 0.95) 100%);
-    padding: 150px 0 80px;
+    padding: 120px 0 80px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -5018,17 +5018,27 @@ html {
     line-height: 1.6;
     position: relative;
     z-index: 1;
+    margin-bottom: 0;
+}
+
+.economic-calendar-hero .container {
+    padding-bottom: 0;
 }
 
 .calendar-widget-section {
     background: #0a0a0a;
-    padding: 60px 0 80px;
+    padding: 0 0 40px;
+    margin-top: 10px;
+}
+
+.calendar-widget-section .container {
+    padding-top: 80px;
 }
 
 .calendar-widget-wrapper {
     background: rgba(255, 255, 255, 0.03);
     border-radius: 16px;
-    padding: 20px;
+    padding: 0;
     border: 1px solid rgba(255, 255, 255, 0.05);
     overflow: hidden;
 }
@@ -5047,7 +5057,7 @@ html {
 /* Responsive Styles for Economic Calendar */
 @media (max-width: 968px) {
     .economic-calendar-hero {
-        padding: 130px 0 60px;
+        padding: 130px 0 0;
     }
     
     .economic-calendar-title {
@@ -5059,7 +5069,12 @@ html {
     }
     
     .calendar-widget-section {
-        padding: 40px 0 60px;
+        padding: 0 0 60px;
+        margin-top: -60px;
+    }
+    
+    .calendar-widget-section .container {
+        padding-top: 60px;
     }
     
     .tradingview-widget-container {
@@ -5069,7 +5084,7 @@ html {
 
 @media (max-width: 768px) {
     .economic-calendar-hero {
-        padding: 120px 0 50px;
+        padding: 120px 0 0;
     }
     
     .economic-calendar-title {
@@ -5081,7 +5096,7 @@ html {
     }
     
     .calendar-widget-wrapper {
-        padding: 15px;
+        padding: 0;
     }
     
     .tradingview-widget-container {
@@ -5105,7 +5120,7 @@ html {
 
 @media (max-width: 480px) {
     .economic-calendar-hero {
-        padding: 110px 0 40px;
+        padding: 110px 0 0;
     }
     
     .economic-calendar-title {
@@ -5113,7 +5128,7 @@ html {
     }
     
     .calendar-widget-wrapper {
-        padding: 10px;
+        padding: 0;
     }
     
     .tradingview-widget-container {
