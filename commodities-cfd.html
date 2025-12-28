@@ -40,7 +40,7 @@
                     <div class="nav-item dropdown">
                         <span>Tools</span>
                         <div class="dropdown-menu">
-                            <a href="#" class="dropdown-item">Economic Calendar</a>
+                            <a href="economic-calendar.html" class="dropdown-item">Economic Calendar</a>
                             <a href="#" class="dropdown-item">Margin Calculator</a>
                         </div>
                     </div>
@@ -67,14 +67,14 @@
     <!-- Commodities Hero Section -->
     <section class="commodities-hero">
         <div class="commodities-hero-image left-image">
-            <img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?w=500&h=400&fit=crop&q=80" alt="Gold Bars">
+            <img src="istockphoto-468068368-612x612.jpg" alt="Gold Bars">
         </div>
         <div class="container">
             <h1 class="commodities-hero-title">Commodities</h1>
             <p class="commodities-hero-subtitle">Benefit from the lowest and most consistent spreads on gold as you trade in the<br>global commodity market and diversify your investment portfolio</p>
         </div>
         <div class="commodities-hero-image right-image">
-            <img src="https://images.unsplash.com/photo-1620847791865-6c71dcef8ba5?w=500&h=400&fit=crop&q=80" alt="Silver Precious Metals">
+            <img src="istockphoto-1502148376-612x612.jpg" alt="Silver Precious Metals">
         </div>
     </section>
 
@@ -92,37 +92,60 @@
                         <div class="title-green">Trade Commodities</div>
                         <div class="title-black">with precision</div>
                     </div>
-                    <div class="sidebar-item active">
+                    <div class="sidebar-menu-item active" data-content="trading-essentials">
                         <span class="bullet">●</span>
-                        <span class="highlight-text">Trading Essentials</span>
+                        <span class="menu-text">Trading Essentials</span>
                     </div>
-                    <div class="sidebar-item">
-                        <span>Precious Metals Insights</span>
+                    <div class="sidebar-menu-item" data-content="precious-metals">
+                        <span class="menu-text">Precious Metals Insights</span>
                     </div>
-                    <div class="sidebar-item">
-                        <span>High Volatility, Big<br>Opportunities</span>
+                    <div class="sidebar-menu-item" data-content="high-volatility">
+                        <span class="menu-text">High Volatility, Big<br>Opportunities</span>
                     </div>
                 </div>
 
                 <!-- Main Content -->
                 <div class="forex-main-content">
-                    <div class="feature-section">
-                        <h2 class="feature-title">Trade Commodities<br>with precision</h2>
+                    <!-- Trading Essentials Content -->
+                    <div class="content-section active" id="trading-essentials">
+                        <h3 class="content-section-title">Consistent and Transparent Spreads</h3>
+                        <p class="content-section-text">At ApexTrade, enjoy minimum and stable spreads throughout the day under normal market conditions. Spreads may widen during major news events or low-liquidity periods, but we work with trusted liquidity providers to ensure fair pricing.</p>
+                        <div class="content-divider"></div>
                         
-                        <div class="feature-item">
-                            <h3 class="feature-item-title">Consistent and Transparent Spreads</h3>
-                            <p class="feature-text">At VolNex, enjoy minimum and stable spreads throughout the day under normal market conditions. Spreads may widen during major news events or low-liquidity periods, but we work with trusted liquidity providers to ensure fair pricing.</p>
-                        </div>
+                        <h3 class="content-section-title">Effortless Swaps</h3>
+                        <p class="content-section-text">Leave positions open overnight? Swap fees apply, based on the interest rate differences in the currency pair. Calculated automatically in your deposit currency, swaps are processed daily at 00:00 (GMT+2, DST may apply).</p>
+                        <div class="content-divider"></div>
+                        
+                        <h3 class="content-section-title">Modern Trading Opportunities</h3>
+                        <p class="content-section-text">Precious metals futures allow risk management with the ability to trade both bullish and bearish markets. Profit from market movements in either direction while managing volatility with strategic trades.</p>
+                    </div>
 
-                        <div class="feature-item">
-                            <h3 class="feature-item-title">Effortless Swaps</h3>
-                            <p class="feature-text">Leave positions open overnight? Swap fees apply, based on the interest rate differences in the currency pair. Calculated automatically in your deposit currency, swaps are processed daily at 00:00 (GMT+2, DST may apply).</p>
-                        </div>
+                    <!-- Precious Metals Insights Content -->
+                    <div class="content-section" id="precious-metals">
+                        <h3 class="content-section-title">Gold & Precious Metals Trading</h3>
+                        <p class="content-section-text">Trade gold, silver, and other precious metals alongside hard commodities like crude oil. Futures, spot, and options contracts are available to suit your trading style, with global access to 50 major commodity markets.</p>
+                        <div class="content-divider"></div>
+                        
+                        <h3 class="content-section-title">Diversify with Precious Metals</h3>
+                        <p class="content-section-text">Gold, platinum, palladium, and silver retain intrinsic value regardless of economic conditions. Whether long-term investing or short-term trading, precious metals offer versatile opportunities for portfolio diversification.</p>
+                        <div class="content-divider"></div>
+                        
+                        <h3 class="content-section-title">Market Factors & Trends</h3>
+                        <p class="content-section-text">Precious metals' prices are influenced by global institutions, jewelry demand, and economic conditions. During uncertainty, gold often acts as a safe-haven asset, while industrial metals like platinum and palladium thrive on technological demand.</p>
+                        <div class="content-divider"></div>
+                        
+                        <h3 class="content-section-title">A Rich Trading Legacy</h3>
+                        <p class="content-section-text">Gold and silver have symbolized wealth for centuries, from ancient coins to modern investments. Today, alongside platinum and palladium, they remain cornerstones of financial security and industrial innovation.</p>
+                    </div>
 
-                        <div class="feature-item">
-                            <h3 class="feature-item-title">Modern Trading Opportunities</h3>
-                            <p class="feature-text">Precious metals futures allow risk management with the ability to trade both bullish and bearish markets. Profit from market movements in either direction while managing volatility with strategic trades.</p>
-                        </div>
+                    <!-- High Volatility Content -->
+                    <div class="content-section" id="high-volatility">
+                        <h3 class="content-section-title">Impact of Weather and Geopolitics</h3>
+                        <p class="content-section-text">Extreme weather can disrupt the supply of crude oil, natural gas, and heating oil, shifting consumer demand. Political instability in key energy-producing regions also significantly impacts global prices.</p>
+                        <div class="content-divider"></div>
+                        
+                        <h3 class="content-section-title">Trade Oil with Precision</h3>
+                        <p class="content-section-text">Oil trading operates 24/7 with constantly moving prices. It's a perfect fit for day traders leveraging CFDs to capitalize on rapid market movements.</p>
                     </div>
                 </div>
             </div>
@@ -381,5 +404,42 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Interactive Menu for Commodities Features
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuItems = document.querySelectorAll('.sidebar-menu-item');
+            const contentSections = document.querySelectorAll('.content-section');
+            
+            function showContent(item) {
+                const contentId = item.getAttribute('data-content');
+                
+                // Remove active class from all menu items
+                menuItems.forEach(mi => mi.classList.remove('active'));
+                
+                // Add active class to clicked item
+                item.classList.add('active');
+                
+                // Hide all content sections
+                contentSections.forEach(section => section.classList.remove('active'));
+                
+                // Show the selected content section
+                const targetSection = document.getElementById(contentId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+            }
+            
+            // Add hover event listeners
+            menuItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    showContent(this);
+                });
+                
+                item.addEventListener('click', function() {
+                    showContent(this);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
