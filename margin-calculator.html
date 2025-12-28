@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Economic Calendar - ApexTradePro</title>
+    <title>Margin Calculator - ApexTradePro</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -19,23 +18,26 @@
                     <div class="nav-item dropdown">
                         <span>Markets</span>
                         <div class="dropdown-menu dropdown-horizontal">
-                            <a href="forex-cfd.html" class="dropdown-item">Forex CFD</a>
-                            <a href="crypto-cfd.html" class="dropdown-item">Crypto CFD</a>
-                            <a href="indices-cfd.html" class="dropdown-item">Indices CFD</a>
-                            <a href="commodities-cfd.html" class="dropdown-item">Commodities CFD</a>
+                            <a href="forex-cfd.html" class="dropdown-item">Forex</a>
+                            <a href="crypto-cfd.html" class="dropdown-item">Crypto</a>
+                            <a href="indices-cfd.html" class="dropdown-item">Indices</a>
+                            <a href="commodities-cfd.html" class="dropdown-item">Commodities</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <span>Trading</span>
                         <div class="dropdown-menu">
-                            <a href="accounts.html" class="dropdown-item">Accounts</a>
-                            <a href="#" class="dropdown-item">Deposits and withdrawals</a>
+                            <a href="#" class="dropdown-item">Trading View</a>
+                            <a href="#" class="dropdown-item">Web Trader</a>
+                            <a href="#" class="dropdown-item">Mobile App</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="platforms.html" style="color: inherit; text-decoration: none;">
-                            <span>Platforms</span>
-                        </a>
+                        <span>Platforms</span>
+                        <div class="dropdown-menu">
+                            <a href="platforms.html" class="dropdown-item">MT4</a>
+                            <a href="platforms.html" class="dropdown-item">MT5</a>
+                        </div>
                     </div>
                     <div class="nav-item dropdown">
                         <span>Tools</span>
@@ -64,49 +66,99 @@
         </div>
     </nav>
 
-    <!-- Economic Calendar Hero -->
-    <section class="economic-calendar-hero">
+    <!-- Margin Calculator Hero Section -->
+    <section class="calculator-hero">
         <div class="container">
-            <h1 class="economic-calendar-title">Economic Calendar</h1>
-            <p class="economic-calendar-subtitle">Stay updated with all the upcoming global events<br>that may influence the market movements and trading strategies.</p>
+            <div class="calculator-hero-content">
+                <h1 class="calculator-hero-title">Margin Calculator</h1>
+                <p class="calculator-hero-subtitle">Stay updated with all the upcoming global events<br>that may influence the market movements and trading strategies.</p>
+            </div>
         </div>
     </section>
 
-    <!-- TradingView Economic Calendar Widget -->
-    <section class="calendar-widget-section">
+    <!-- Calculator Form Section -->
+    <section class="calculator-form-section">
         <div class="container">
-            <div class="calendar-widget-wrapper">
-                <!-- TradingView Widget BEGIN -->
-                <div class="tradingview-widget-container">
-                    <div class="tradingview-widget-container__widget"></div>
-                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
-                    {
-                        "colorTheme": "dark",
-                        "isTransparent": false,
-                        "width": "100%",
-                        "height": "800",
-                        "locale": "en",
-                        "importanceFilter": "-1,0,1",
-                        "countryFilter": "ar,au,br,ca,cn,fr,de,in,id,it,jp,kr,mx,ru,sa,za,tr,gb,us,eu"
-                    }
-                    </script>
+            <div class="calculator-form-wrapper">
+                <form class="calculator-form" id="marginCalculatorForm">
+                    <div class="form-group">
+                        <label for="instrument">Select Instrument *</label>
+                        <select id="instrument" class="form-select" required>
+                            <option value="">Select Instrument</option>
+                            <option value="eurusd">EUR/USD</option>
+                            <option value="gbpusd">GBP/USD</option>
+                            <option value="usdjpy">USD/JPY</option>
+                            <option value="btcusd">BTC/USD</option>
+                            <option value="ethusd">ETH/USD</option>
+                            <option value="xauusd">Gold (XAU/USD)</option>
+                            <option value="us30">US30</option>
+                            <option value="us500">US500</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="currentPrice">Current Price *</label>
+                        <input type="number" id="currentPrice" class="form-input" placeholder="Enter current price" step="0.00001" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="leverage">Select Leverage *</label>
+                        <select id="leverage" class="form-select" required>
+                            <option value="">Select Leverage</option>
+                            <option value="1">1:1</option>
+                            <option value="10">1:10</option>
+                            <option value="25">1:25</option>
+                            <option value="50">1:50</option>
+                            <option value="100">1:100</option>
+                            <option value="200">1:200</option>
+                            <option value="500">1:500</option>
+                            <option value="1000">1:1000</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lotSize">Number of Lots *</label>
+                        <input type="number" id="lotSize" class="form-input" placeholder="Enter number of lots" step="0.01" min="0.01" required>
+                    </div>
+
+                    <button type="submit" class="btn-calculate">Calculate</button>
+                </form>
+
+                <div class="calculator-result" id="calculatorResult" style="display: none;">
+                    <h3 class="result-title">Calculation Results</h3>
+                    <div class="result-items">
+                        <div class="result-item">
+                            <span class="result-label">Required Margin:</span>
+                            <span class="result-value" id="resultMargin">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Position Size:</span>
+                            <span class="result-value" id="resultPosition">0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Pip Value:</span>
+                            <span class="result-value" id="resultPipValue">$0.00</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- TradingView Widget END -->
             </div>
         </div>
     </section>
 
     <!-- Support Section -->
-    <section class="cta">
-        <div class="support-section">
-            <div class="container">
+    <section class="calculator-support">
+        <div class="container">
+            <div class="support-card">
                 <div class="support-content">
                     <span class="support-tag">Support</span>
-                    <h2 class="support-title">Got more<br>questions?</h2>
-                    <button class="btn-support">Ask here</button>
+                    <h2 class="support-title">Got more<br><span class="highlight">questions?</span></h2>
+                    <a href="contact-us.html" class="btn-support">Ask here</a>
                 </div>
-                <div class="support-image">
-                    <img src="[CITYPNG.COM]HD Group Of Bitcoin Coins PNG - 1500x1500.png" alt="Support">
+                <div class="support-coins">
+                    <img src="img/2PsST2r.webp" alt="Coin 1" class="support-coin coin-1">
+                    <img src="img/SMJmtaL.webp" alt="Coin 2" class="support-coin coin-2">
+                    <img src="img/Rp3ZYAD.webp" alt="Coin 3" class="support-coin coin-3">
+                    <img src="img/ca9EwxT.webp" alt="Coin 4" class="support-coin coin-4">
                 </div>
             </div>
         </div>
@@ -117,7 +169,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">News</span>
-                <h2 class="section-title">Stay Connected with<br><span class="highlight">ApexTradePro!</span></h2>
+                <h2 class="section-title"><span class="highlight">ApexTradePro!</span></h2>
             </div>
             <div class="news-grid">
                 <div class="news-card">
@@ -142,7 +194,7 @@
                 </div>
                 <div class="news-card">
                     <div class="news-image">
-                        <img src="Screenshot 2025-12-28 152233.png" alt="Trading">
+                        <img src="153346333.webp" alt="Forex Trading">
                     </div>
                     <h3 class="news-title">Planning to explore New Opportunities in Forex Markets as an Indian trader? Here's how you can get started in 2025!</h3>
                     <div class="news-tags">
@@ -151,6 +203,7 @@
                     </div>
                 </div>
             </div>
+            <button class="btn-view-more">View more</button>
         </div>
     </section>
 
@@ -158,24 +211,26 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-top">
-                <div class="footer-brand">
-                    <img src="Apex logo.png" alt="ApexTradePro" class="footer-logo">
+                <div class="footer-logo">
+                    <a href="index.html" class="logo">
+                        <img src="Apex logo.png" alt="ApexTradePro" class="logo-img">
+                    </a>
                 </div>
-                <div class="footer-columns">
+                <div class="footer-links">
                     <div class="footer-column">
                         <h4>ACCOUNTS</h4>
                         <ul>
-                            <li><a href="platforms.html">Platform</a></li>
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="#">Blogs</a></li>
+                            <li><a href="platforms.html">PLATFORM</a></li>
+                            <li><a href="about-us.html">ABOUT US</a></li>
+                            <li><a href="#">BLOGS</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
                         <h4>DEPOSIT & WITHDRA...</h4>
                         <ul>
-                            <li><a href="#">Tools</a></li>
-                            <li><a href="contact-us.html">Contact Us</a></li>
-                            <li><a href="#">Become a Partner</a></li>
+                            <li><a href="#">TOOLS</a></li>
+                            <li><a href="contact-us.html">CONTACT US</a></li>
+                            <li><a href="partners.html">BECOME A PARTNER</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
@@ -232,5 +287,38 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Margin Calculator Logic
+        document.getElementById('marginCalculatorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const instrument = document.getElementById('instrument').value;
+            const currentPrice = parseFloat(document.getElementById('currentPrice').value);
+            const leverage = parseInt(document.getElementById('leverage').value);
+            const lotSize = parseFloat(document.getElementById('lotSize').value);
+            
+            if (!instrument || !currentPrice || !leverage || !lotSize) {
+                alert('Please fill all required fields');
+                return;
+            }
+            
+            // Standard lot size is 100,000 units for forex
+            const contractSize = 100000;
+            const positionSize = contractSize * lotSize;
+            const positionValue = positionSize * currentPrice;
+            const requiredMargin = positionValue / leverage;
+            const pipValue = (contractSize * lotSize) * 0.0001;
+            
+            // Display results
+            document.getElementById('resultMargin').textContent = '$' + requiredMargin.toFixed(2);
+            document.getElementById('resultPosition').textContent = positionSize.toLocaleString();
+            document.getElementById('resultPipValue').textContent = '$' + pipValue.toFixed(2);
+            
+            document.getElementById('calculatorResult').style.display = 'block';
+            
+            // Smooth scroll to results
+            document.getElementById('calculatorResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    </script>
 </body>
 </html>
