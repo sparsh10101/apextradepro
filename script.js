@@ -1,38 +1,112 @@
 // Product hover blur effect
 document.addEventListener('DOMContentLoaded', () => {
+    // Disable animations on mobile for better performance
+    if (window.innerWidth <= 768) {
+        document.body.classList.add('mobile-minimal');
+    }
+    
+    // Update on resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth <= 768) {
+            document.body.classList.add('mobile-minimal');
+        } else {
+            document.body.classList.remove('mobile-minimal');
+        }
+    });
+    
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navMenu = document.getElementById('navMenu');
+    const dropdownItems = document.querySelectorAll('.nav-item.dropdown');
+    
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        });
+    }
+    
+    // Mobile dropdown toggle
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.stopPropagation();
+                // Close other dropdowns
+                dropdownItems.forEach(other => {
+                    if (other !== item) {
+                        other.classList.remove('active');
+                    }
+                });
+                item.classList.toggle('active');
+            }
+        });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && 
+            navMenu && 
+            navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !mobileMenuToggle.contains(e.target)) {
+            mobileMenuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Close mobile menu on window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && navMenu) {
+            navMenu.classList.remove('active');
+            if (mobileMenuToggle) {
+                mobileMenuToggle.classList.remove('active');
+            }
+            document.body.style.overflow = '';
+            // Close all dropdowns
+            dropdownItems.forEach(item => {
+                item.classList.remove('active');
+            });
+        }
+    });
+    
     const productHoverTargets = document.querySelectorAll('.product-hover-target');
     const productsGrid = document.getElementById('productsGrid');
     const gridWrapper = document.querySelector('.products-grid-wrapper');
     const allCells = document.querySelectorAll('.grid-cell');
     
-    productHoverTargets.forEach(target => {
-        target.addEventListener('mouseenter', () => {
-            gridWrapper.classList.add('blur-active');
-            
-            // Blur all cells except the hovered one
-            allCells.forEach(cell => {
-                if (cell !== target) {
-                    cell.style.filter = 'blur(3px)';
-                }
+    // Disable hover effects on mobile
+    if (window.innerWidth > 768) {
+        productHoverTargets.forEach(target => {
+            target.addEventListener('mouseenter', () => {
+                gridWrapper.classList.add('blur-active');
+                
+                // Blur all cells except the hovered one
+                allCells.forEach(cell => {
+                    if (cell !== target) {
+                        cell.style.filter = 'blur(3px)';
+                    }
+                });
+                
+                // Keep the hovered target clear
+                target.style.filter = 'blur(0)';
+                target.style.position = 'relative';
+                target.style.zIndex = '100';
             });
             
-            // Keep the hovered target clear
-            target.style.filter = 'blur(0)';
-            target.style.position = 'relative';
-            target.style.zIndex = '100';
-        });
-        
-        target.addEventListener('mouseleave', () => {
-            gridWrapper.classList.remove('blur-active');
-            
-            // Remove blur from all cells
-            allCells.forEach(cell => {
-                cell.style.filter = 'none';
+            target.addEventListener('mouseleave', () => {
+                gridWrapper.classList.remove('blur-active');
+                
+                // Remove blur from all cells
+                allCells.forEach(cell => {
+                    cell.style.filter = 'none';
+                });
+                
+                target.style.zIndex = '';
             });
-            
-            target.style.zIndex = '';
         });
-    });
+    }
 });
 
 // Smooth scrolling for navigation links
