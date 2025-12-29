@@ -6886,27 +6886,47 @@ html {
         margin: 2px 0;
     }
     
+    .nav-item.dropdown.active {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .nav-item.dropdown.active > span {
+        padding-left: 15px;
+        padding-right: 15px;
+        display: block;
+    }
+    
     .nav-item:hover {
         background: rgba(255, 255, 255, 0.08);
     }
     
     .dropdown-menu {
-        position: static;
-        transform: none;
-        margin: 8px 0;
-        opacity: 1;
-        visibility: visible;
+        position: static !important;
+        transform: none !important;
+        margin: 8px 0 0 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
         background: rgba(0, 0, 0, 0.5);
         display: none;
         border: none;
         box-shadow: none;
-        padding: 12px;
+        padding: 15px;
         border-radius: 8px;
-        width: 100%;
+        width: 100% !important;
+        text-align: center;
+        left: 0 !important;
+        right: 0 !important;
+        transition: none !important;
+        animation: none !important;
     }
     
     .nav-item.dropdown.active .dropdown-menu {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
     }
     
     .dropdown-horizontal {
@@ -6916,8 +6936,11 @@ html {
         gap: 8px;
         display: flex;
         flex-direction: column;
+        width: 100%;
+        align-items: center;
     }
     
+    .dropdown-horizontal .dropdown-item,
     .dropdown-item {
         padding: 14px 20px;
         font-size: 14px;
@@ -6925,9 +6948,13 @@ html {
         background: rgba(255, 255, 255, 0.05);
         color: rgba(255, 255, 255, 0.9);
         display: block;
-        width: 100%;
+        width: 90%;
         text-align: center;
         border: 1px solid rgba(255, 255, 255, 0.1);
+        margin: 0 auto;
+        text-decoration: none;
+        transform: none !important;
+        transition: none !important;
     }
     
     .dropdown-item:hover {
@@ -7074,6 +7101,8 @@ html {
         min-height: 180px;
         background: rgba(26, 26, 26, 0.5);
         border: 1px solid rgba(255, 255, 255, 0.08);
+        transform: none !important;
+        transition: none !important;
     }
     
     .feature-card::before {
@@ -7081,8 +7110,12 @@ html {
     }
     
     .feature-card:hover {
-        transform: none;
+        transform: none !important;
         box-shadow: 0 5px 15px rgba(30, 144, 255, 0.2);
+    }
+    
+    .feature-card:hover .feature-image img {
+        transform: none !important;
     }
     
     .feature-content {
@@ -7221,6 +7254,251 @@ html {
         height: 35px;
         font-size: 16px;
     }
+    
+    /* Forex/Markets Pages Mobile */
+    .forex-hero,
+    .crypto-hero,
+    .indices-hero,
+    .commodities-hero {
+        padding: 80px 0 40px;
+        min-height: auto;
+    }
+    
+    .forex-hero-coins,
+    .crypto-hero-coins {
+        display: none !important;
+    }
+    
+    .forex-hero-title,
+    .crypto-hero-title,
+    .indices-hero-title,
+    .commodities-hero-title {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+    
+    .forex-hero-subtitle,
+    .crypto-hero-subtitle {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+    
+    .forex-content-grid,
+    .crypto-content-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .forex-sidebar,
+    .crypto-sidebar {
+        position: static;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .forex-matrix-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .forex-matrix {
+        min-width: 600px;
+        font-size: 12px;
+    }
+    
+    .forex-matrix th,
+    .forex-matrix td {
+        padding: 8px 6px;
+        font-size: 11px;
+    }
+    
+    /* Economic Calendar Mobile */
+    .economic-calendar-hero {
+        padding: 80px 0 40px;
+    }
+    
+    .economic-calendar-title {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+    
+    .economic-calendar-subtitle {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+    
+    .calendar-widget-wrapper {
+        padding: 0;
+        border-radius: 12px;
+    }
+    
+    /* Margin Calculator Mobile */
+    .margin-calculator-hero {
+        padding: 80px 0 40px;
+    }
+    
+    .calculator-container {
+        padding: 20px 15px;
+        border-radius: 12px;
+    }
+    
+    .calculator-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .calculator-input label,
+    .calculator-output label {
+        font-size: 13px;
+    }
+    
+    .calculator-input input,
+    .calculator-input select {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+    
+    /* About Us Mobile */
+    .about-hero-section {
+        padding: 80px 0 40px;
+    }
+    
+    .about-hero-coin {
+        display: none !important;
+    }
+    
+    .about-hero-title {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+    
+    .about-hero-subtitle {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+    
+    .stats-grid-banner {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .stat-divider-banner {
+        display: none;
+    }
+    
+    .about-section {
+        padding: 40px 0;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .about-image {
+        order: -1;
+        height: 250px;
+    }
+    
+    /* Platforms Mobile */
+    .platforms-hero {
+        padding: 80px 0 40px;
+    }
+    
+    .platforms-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .platform-card {
+        padding: 25px 20px;
+    }
+    
+    /* Contact Us Mobile */
+    .contact-hero {
+        padding: 80px 0 40px;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .contact-form {
+        padding: 25px 20px;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 14px;
+        padding: 12px 15px;
+    }
+    
+    /* Social Section Minimal Mobile */
+    .social-section {
+        padding: 40px 0;
+    }
+    
+    .social-section h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        animation: none !important;
+    }
+    
+    .social-icons-large {
+        gap: 12px;
+        animation: none !important;
+    }
+    
+    .social-icon-large {
+        width: 40px;
+        height: 40px;
+        transition: none !important;
+        transform: none !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    .social-icon-large svg {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .social-icon-large::before {
+        display: none;
+    }
+    
+    .social-icon-large:hover {
+        transform: none !important;
+    }
+    
+    .social-icon-large:hover::before {
+        transform: none !important;
+    }
+    
+    /* Accounts Mobile */
+    .accounts-hero {
+        padding: 80px 0 40px;
+    }
+    
+    .accounts-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .account-card {
+        padding: 25px 20px;
+    }
+    
+    /* Partners Mobile */
+    .partners-hero {
+        padding: 80px 0 40px;
+    }
+    
+    .partners-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
 
 /* Mobile (max-width: 576px) */
@@ -7258,9 +7536,14 @@ html {
         margin: 1px 0;
     }
     
+    .dropdown-horizontal .dropdown-item,
     .dropdown-item {
         padding: 8px 12px;
         font-size: 12px;
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        display: block;
     }
     
     /* Minimal action buttons on smaller screens */

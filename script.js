@@ -188,13 +188,16 @@ document.querySelectorAll('.btn-primary, .btn-register').forEach(btn => {
     });
 });
 
-// Parallax effect for hero section
+// Parallax effect for hero section (disabled on mobile)
 window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    
-    if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    // Disable parallax on mobile for better performance and stability
+    if (window.innerWidth > 768) {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        
+        if (hero) {
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
     }
 });
 
